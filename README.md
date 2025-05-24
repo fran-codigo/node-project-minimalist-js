@@ -31,3 +31,4 @@ Construye tu api REST con Node.js, Express y Prisma.
 3. Instalar dependencias con el comando `npm i`
 4. Configurar variables de entorno copiando el archivo .env.template a .env
 5. Iniciar el servidor con el comando `npm run serve`
+6. Correr el comando `npx prisma migrate dev --name init` para crear la tabla de la base de datos, puedes modificar antes el archivo `prisma/schema.prisma` para crear la tablas de la base de datos de tu proyecto
