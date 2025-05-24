@@ -33,7 +33,7 @@ server.use(cors(corsOptions));
 server.use(morgan("dev"));
 
 // Define routes
-server.use("/", userRouter);
+server.use("/api/v1", userRouter);
 
 // Define port
 const PORT = process.env.PORT || 4000;
