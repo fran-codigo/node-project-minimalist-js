@@ -5,16 +5,11 @@ import morgan from "morgan";
 import cors from "cors";
 import userRouter from "./routes/user.routes.js";
 
-// Variables de entorno
 dotenv.config();
 
 const server = express();
 
-// Leer los datos del body
-server.use(express.json());
-
-// config cors
-// you can remove undefined if you are in production mode
+// Cors config
 const whiteList = [process.env.FRONTEND_URL, undefined];
 const corsOptions = {
   origin: function (origin, callback) {
@@ -27,18 +22,18 @@ const corsOptions = {
   credentials: true,
 };
 
+// Middleware
+server.use(express.json());
 server.use(cors(corsOptions));
-
-// config morgan
 server.use(morgan("dev"));
 
-// Define routes
+// Routes
 server.use("/api/v1", userRouter);
 
-// Define port
+// Server config
 const PORT = process.env.PORT || 4000;
 
-// start server
+// Server start
 server.listen(PORT, () => {
   console.log(
     colors.bgBlue.white("Server running on port: " + colors.bgRed(PORT))
